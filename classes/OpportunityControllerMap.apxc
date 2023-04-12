@@ -1,0 +1,23 @@
+public class OpportunityControllerMap {
+  
+public static void profileClassification(List<Opportunity>oppIds)
+{
+  Map<Id, Opportunity> oppMapList = new  Map<Id, Opportunity>([SELECT Id, Name, Amount, Profile__c 
+                                                          FROM Opportunity 
+                                                          WHERE Id IN : oppIds ]);
+  for (Opportunity  oppMap: oppMapList.values()) {
+    
+    if (oppMap.Amount < 10000) {
+      oppMap.Profile__c.('Low');
+    }
+    else if () {
+      oppMap.Profile__c('Medium');
+    } else {
+      oppMap.Profile__c('High');
+    }
+  }                                                       
+
+
+}
+
+}
